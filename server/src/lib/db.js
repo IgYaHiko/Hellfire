@@ -1,9 +1,15 @@
-import {PrismaClient} from '@prisma/client'
+import { PrismaClient } from "@prisma/client";
 
+let prisma;
 
-const globalPrisma = global
-const prisma = new PrismaClient();
+if (process.env.NODE_ENV === "production") {
+  prisma = new PrismaClient();
+} else {
+  // Use globalThis to prevent multiple instances during dev/hot-reload
+  if (!globalThis.prisma) {
+    globalThis.prisma = new PrismaClient();
+  }
+  prisma = globalThis.prisma;
+}
 
-if(process.env.NODE_ENV !== 'production') globalPrisma.prisma = prisma;
-
-export default prisma
+export default prisma;
