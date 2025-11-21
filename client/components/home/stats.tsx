@@ -25,7 +25,7 @@ const Stats = () => {
     />
   ))}
 
-  <div className="w-10 h-10 rounded-full border-2 border-background bg-muted flex items-center justify-center">
+  <div className="w-12 h-12 rounded-full  border-2 border-background bg-amber-200 dark:bg-neutral-700 flex items-center justify-center">
     <span className="text-xs font-bold text-muted-foreground">+</span>
   </div>
 </div>

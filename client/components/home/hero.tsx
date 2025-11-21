@@ -44,14 +44,14 @@ const Hero = () => {
 
             {/* Installation Command Bash */}
             <div className="max-w-xl mx-auto mt-8">
-                <div className="bg-neutral-900 rounded-lg border border-gray-700 overflow-hidden">
-                    <div className="flex items-center justify-between px-4 py-2 bg-neutral-950 border-b border-gray-700">
+                <div className="dark:bg-neutral-900 bg-gray-200 rounded-lg border dark:border-gray-700 overflow-hidden">
+                    <div className="flex items-center justify-between px-4 py-2 bg-gray-300 dark:bg-neutral-950 border-b border-gray-700">
                         <div className="flex items-center space-x-2">
-                            <div className="w-3 h-3 bg-neutral-600 rounded-full"></div>
-                            <div className="w-3 h-3 bg-neutral-700 rounded-full"></div>
-                            <div className="w-3 h-3 bg-neutral-800 rounded-full"></div>
+                            <div className="w-3 h-3 dark:bg-neutral-600 bg-amber-300 rounded-full"></div>
+                            <div className="w-3 h-3 dark:bg-neutral-700 bg-amber-400 rounded-full"></div>
+                            <div className="w-3 h-3 dark:bg-neutral-800 bg-amber-200 rounded-full"></div>
                         </div>
-                        <span className="text-sm text-gray-400 font-mono">bash</span>
+                        <span className="text-sm  font-mono">bash</span>
                     </div>
                     <div className="p-4">
                         <div className="flex items-center justify-between">

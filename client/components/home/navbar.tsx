@@ -4,8 +4,9 @@ import React, { useState, useRef } from 'react';
 /* import { useRouter } from 'next/router'; */
 import Image from 'next/image';
 
-import { GithubIcon, Menu, X } from 'lucide-react'; // ✅ Lucide icons
+import { GithubIcon, LogOut, Menu, Moon, X } from 'lucide-react'; // ✅ Lucide icons
 import { Button } from '@/components/ui/button';
+import { useTheme } from "next-themes";
 
 import { useRouter } from 'next/navigation'
 import { icons } from '@/public/assets/icons/icons';
@@ -31,6 +32,7 @@ const Navbar: React.FC<NavbarProps> = () => {
    const router = useRouter(); 
   const menuRef = useRef<HTMLDivElement>(null);
  const { data: session } = authClient.useSession();
+const { theme, setTheme } = useTheme();
 
 
   return (
@@ -69,14 +71,43 @@ const Navbar: React.FC<NavbarProps> = () => {
             </div> 
 
             {/* Desktop Auth Buttons */}
+
+            <Button
+  variant="ghost"
+  className="mr-2"
+  onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+>
+  <Moon className="size-5" />
+</Button>
+
               {
                 session?.user ? (
+                       <div className='flex items-center gap-2'> 
+                          <Button
+               className=''
+               variant={"ghost"}
+              >
+                <GithubIcon className='size-5' />
+              </Button>
                       <Button
-                      className='rounded-none font-mono font-semibold'
+                       variant={'ghost'}
+                      className=' font-mono font-semibold'
                        onClick={() => authClient.signOut()}
                       >
-                        Logout
+                       <LogOut/>
                       </Button>
+
+                      
+
+              <Image
+                            src={session?.user?.image ?? ''}
+                            alt="User"
+                            width={32}
+                            height={32}
+                            className="rounded-full border"
+      /> 
+ 
+                       </div>
           
                 ) : (
                        <div className='space-x-5 flex items-center justify-center'>
@@ -91,17 +122,21 @@ const Navbar: React.FC<NavbarProps> = () => {
             <Link
              href={"https://github.com/IgYaHiko"}
             >
+            
+            </Link>
+
              <Button
                className=''
                variant={"ghost"}
               >
-                <GithubIcon className='size-5' />
+                <GithubIcon className='size-5' />gihub
               </Button>
-            </Link>
           </div>
           
                 )
               }
+
+          
     
           </div>
         </div>
