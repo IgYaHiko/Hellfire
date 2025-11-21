@@ -1,7 +1,5 @@
 # 🔥 Hellfire_CLI
-<div align="center">
-  <img src="https://raw.githubusercontent.com/IgYaHiko/Hellfire_CLI/main/public/assets/icons/hellfire_logo.png" width="180" alt="Hellfire CLI Logo" />
-</div>
+
 
 
 Hellfire is a **CLI-based full-stack application** consisting of a **Next.js client** and an **Express server**.  
