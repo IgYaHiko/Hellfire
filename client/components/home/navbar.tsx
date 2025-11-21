@@ -74,11 +74,7 @@ const Navbar: React.FC<NavbarProps> = () => {
            >
             <Button className='rounded-none font-mono font-semibold'>SignIn</Button>
            </Link>
-             <Link
-              href={"/auth/sign-up"}
-             >
-             <Button className='rounded-none font-mono font-semibold'>SignUp</Button>
-             </Link>
+            
 
             <Link
              href={"https://github.com/IgYaHiko"}
