@@ -130,7 +130,7 @@ async function saveMessage(conversationId, role, content) {
 
 async function getAIResponse(conversationId) {
   const spinner = yoctoSpinner({ 
-    text: "AI is thinking...", 
+    text: "Lucifer is thinking...", 
     color: "cyan" 
   }).start();
 
@@ -249,7 +249,7 @@ export async function startChat(mode = "chat", conversationId = null) {
   try {
     // Display intro banner
     intro(
-      boxen(chalk.bold.cyan("🚀 Orbit AI Chat"), {
+      boxen(chalk.bold.cyan("🚀 Chat With Lucifer"), {
         padding: 1,
         borderStyle: "double",
         borderColor: "cyan",
