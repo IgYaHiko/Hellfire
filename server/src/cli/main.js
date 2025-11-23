@@ -15,14 +15,20 @@ dotenv.config();
 
 async function main() {
   console.log(
+  chalk.redBright.bold(
     chalk.red(
       figlet.textSync("HELLFIRE_CLI", {
         font: "Standard",
-        horizontalLayout: "default",
+        horizontalLayout: "full",
       })
     )
-  );
-  console.log(chalk.red("A CLI based AI tool\n"));
+  )
+);
+  console.log(
+  chalk.redBright.bold(
+    "🔥⚡ Welcome to the Cult — Exchange Your Soul ⚡🔥\n"
+  )
+);
 
   const program = new Command("hellfire");
 
