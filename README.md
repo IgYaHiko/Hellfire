@@ -2,7 +2,7 @@
 
 ## 🖼️ UI Preview
 
-### 🏠 Home Screen  
+### 🏠 Home Screen:
 A clean and modern landing interface for the Hellfire client.  
 ![Home UI](./client/public/home.png)
 
