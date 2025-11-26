@@ -4,66 +4,69 @@ import { fromNodeHeaders, toNodeHandler } from "better-auth/node";
 import cors from "cors";
 
 const app = express();
-const port = "https://hellfire-cli.onrender.com/"
+const PORT = process.env.PORT || 3005;
 
 app.use(
   cors({
-    origin: "https://hellfire-cli.vercel.app/", 
-    methods: ["GET", "POST", "PUT", "DELETE"], 
-    credentials: true, 
+    origin: "https://hellfire-cli.vercel.app/",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
   })
 );
 
-app.all("/api/auth/*splat", toNodeHandler(auth));     
+app.all("/api/auth/*splat", toNodeHandler(auth));
 
 app.use(express.json());
 
-// Fixed: This endpoint now properly handles Bearer token authentication
 app.get("/api/me", async (req, res) => {
   try {
     const session = await auth.api.getSession({
       headers: fromNodeHeaders(req.headers),
     });
-    
+
     if (!session) {
       return res.status(401).json({ error: "No active session" });
     }
-    
+
     return res.json(session);
   } catch (error) {
     console.error("Session error:", error);
-    return res.status(500).json({ error: "Failed to get session", details: error.message });
+    return res.status(500).json({
+      error: "Failed to get session",
+      details: error.message,
+    });
   }
 });
 
-// You can remove this endpoint if you're using the Bearer token approach above
 app.get("/api/me/:access_token", async (req, res) => {
   const { access_token } = req.params;
-  console.log(access_token);
-  
+
   try {
     const session = await auth.api.getSession({
       headers: {
-        authorization: `Bearer ${access_token}`
-      }
+        authorization: `Bearer ${access_token}`,
+      },
     });
-    
+
     if (!session) {
       return res.status(401).json({ error: "Invalid token" });
     }
-    
+
     return res.json(session);
   } catch (error) {
     console.error("Token validation error:", error);
-    return res.status(401).json({ error: "Unauthorized", details: error.message });
+    return res.status(401).json({
+      error: "Unauthorized",
+      details: error.message,
+    });
   }
 });
 
 app.get("/device", async (req, res) => {
-  const { user_code } = req.query; // Fixed: should be req.query, not req.params
+  const { user_code } = req.query;
   res.redirect(`https://hellfire-cli.vercel.app/device?user_code=${user_code}`);
 });
 
-app.listen(port, () => {
-  console.log(`😈2[HELLFIRE]: Backend server is running on ${port}`);
+app.listen(PORT, () => {
+  console.log(`😈2[HELLFIRE]: Backend server is running on port ${PORT}`);
 });
