@@ -8,11 +8,15 @@ const PORT = process.env.PORT || 3005;
 
 app.use(
   cors({
-    origin: "https://hellfire-cli.vercel.app/",
+    origin: [
+      "https://hellfire-cli.vercel.app", 
+      "http://localhost:3002"            // optional for dev
+    ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
 );
+
 
 app.all("/api/auth/*splat", toNodeHandler(auth));
 

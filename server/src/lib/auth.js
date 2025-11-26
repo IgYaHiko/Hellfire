@@ -7,7 +7,7 @@ export const auth = betterAuth({
          provider: 'postgresql',
      }),
      basePath: "/api/auth",
-     trustedOrigins: ['http://localhost:3002'],
+     trustedOrigins: ['https://hellfire-cli.vercel.app/'],
       plugins: [
    deviceAuthorization({ 
       verificationUri: "/device", 
