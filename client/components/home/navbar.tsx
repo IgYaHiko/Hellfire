@@ -110,7 +110,7 @@ const { theme, setTheme } = useTheme();
                        </div>
           
                 ) : (
-                       <div className='space-x-5 flex items-center justify-center'>
+                       <div className='gap-2 flex items-center justify-center'>
                 
            <Link
             href={"/auth/sign-in"}
@@ -129,7 +129,7 @@ const { theme, setTheme } = useTheme();
                className=''
                variant={"ghost"}
               >
-                <GithubIcon className='size-5' />gihub
+                <GithubIcon className='size-5' />
               </Button>
           </div>
           

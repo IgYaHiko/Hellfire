@@ -11,7 +11,7 @@ import { authClient } from '@/lib/auth-client'
 
 const Hero = () => {
   const copyToClipboard = () => {
-    navigator.clipboard.writeText('npm install -g hellfire-cli')
+    navigator.clipboard.writeText('hellfire wakeup')
   }
 
   return (
@@ -56,7 +56,7 @@ const Hero = () => {
                     <div className="p-4">
                         <div className="flex items-center justify-between">
                             <code className=" text-xs font-mono ">
-                                $ npm install -g hellfire-cli
+                                $ hellfire wakeup
                             </code>
                             <Button 
                                 onClick={copyToClipboard}
