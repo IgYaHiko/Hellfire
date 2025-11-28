@@ -27,6 +27,7 @@
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
     "figlet": "^1.9.4",
+    "gradient-string": "^3.0.0",
     "marked": "^15.0.12",
     "marked-terminal": "^7.3.0",
     "node-fetch": "^3.3.2",
