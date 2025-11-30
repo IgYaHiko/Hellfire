@@ -41,22 +41,33 @@ const { theme, setTheme } = useTheme();
         <div className="flex items-center justify-between  rounded-full   px-4 md:px-10">
           {/* Logo */}
           <div className="flex items-center">
-            <div className="w-[100px] flex ">
+            <div className=" flex ">
               <Image
                 src={icons.HELL_FIRE}
 
                 alt="Logo"
-                width={200}
-                height={200}
+                width={70}
+                height={70}
                 className="object-contain"
                 
               />
-              <span className='font-bold text-4xl flex items-center gap-3' style={{fontFamily: "poppins"}}>HELLFIRE. </span>
+              <span className='font-bold text-2xl flex items-center gap-3' style={{fontFamily: "poppins"}}>HELLFIRE. </span>
             </div>
             
           </div>
 
           {/* Desktop Nav */}
+          <div className='flex items-center font-mono gap-5'>
+            <Link className='hidden md:block' href={"/docs"}>
+                Docs
+            </Link>
+             <Link className='md:block hidden' href={"/review"}>
+                Review  
+            </Link>
+             <Link className='hidden md:block' href={"/contact"}>
+                Contact
+            </Link>
+          </div>
          
 
           {/* Right Section */}
